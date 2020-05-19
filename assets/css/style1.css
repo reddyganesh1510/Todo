@@ -1,0 +1,290 @@
+body{
+    background-color: black;
+}
+html{
+   height: 100%;
+   width: 100%;
+}
+
+#main{
+ 
+    
+background-image: url("../css/minimalist-art-light-gray_00449233.jpg");
+    background-position: center;
+ background-size: cover ;
+ background-repeat: no-repeat;  
+        width: 50vw;
+    height: 75vh;
+    margin-top: 10vh;
+    margin-left: 25vw;
+}
+
+
+
+.heading-todo{
+    height: 10%;
+    width: 100%;
+    font-family: candara;
+    
+    display: flex;
+    font-size: 2vw;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.heading-tasks{
+    height: 10%;
+    width: 100%;
+    font-family: candara;
+   color: black;
+    display: flex;
+    font-size: 1.5vw;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#heading-todo i{
+    margin-right: 15px;
+    font-size: 1.7vw;
+}
+
+
+
+
+#part-1{
+    vertical-align: top;
+    width: 35%;
+    height: 90%;
+    background-color: transparent;
+    
+    
+}
+#part-2{
+    width:65%;
+    height: 90%;
+    background-color: transparent;
+    margin-left: -4px;
+    
+
+}
+#part-1-container{
+    width: 98%;
+    height: 98%;
+}
+
+.inline-block{
+    display: inline-block;
+}
+#upcoming-tasks{
+    width: 100%;
+    height: 50%;
+    background-color:transparent;
+}
+#completed-tasks{
+    width: 100%;
+    height: 50%;
+    background-color:transparent;
+}
+
+
+#part-1-container div{
+    
+    background-color:transparent;
+    width: 95%;
+    height: 15%;
+    margin-left: 5%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+}
+#part-1 div i{
+    margin-right: 8%;
+}
+
+#part-1 form div input{
+    background-color: transparent;
+    font-size: 1vw;
+    outline: none;
+   
+}
+.margin-zero{
+    margin-left: 0;
+}
+#part-1 form div i{
+    font-size: 1vw;
+    margin-left: 5%;
+}
+
+input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black;
+  }
+  input:focus {
+    border-color: darkgray
+  }
+
+  #upcoming-container, #completed-container{
+      background-color: transparent;
+      width: 99%;
+      height: 85%;
+      margin-left: 2%;
+      overflow-x: scroll;
+
+  }
+ 
+  #upcoming-task{
+    background: rgba(255, 255, 255, 0.356);
+      width: 90%;
+      height: 22%;
+      margin-left: 5%;
+      margin-top: 1.5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;   
+      border-left: 4px solid black;    
+      border-radius: 3px; 
+  }
+
+  #name-date{
+      width: 40%;
+      height: 100%;
+     
+      display: flex;
+        justify-content: space-evenly;
+        
+        font-family: sans-serif;
+    
+    flex-direction: column;
+    
+      margin-left:-6%;
+      background-color:transparent;
+  }
+
+  #type-info{
+    width: 15%;
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: wheat;
+    font-family: candara;
+    border-radius: 25px;
+    
+    
+}
+
+#options{
+
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.1vw;
+    
+    
+   margin-right: -4%;
+    background-color:transparent;
+}
+
+#upcoming-container p,#completed-container p{
+    margin: 0;
+   
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+  body select { 
+    display: block;
+    padding: 10px 70px 10px 13px !important; 
+    max-width: 100%; 
+    height: auto !important; 
+    border: 1px solid black; 
+    border-radius: 3px; 
+    background: url("https://i.ibb.co/b7xjLrB/selectbox-arrow.png") right center no-repeat; 
+    background-color: #DADADA; 
+    color: black; 
+    font-size: 12px; 
+    line-height: 16px !important; 
+    appearance: none; 
+ -webkit-appearance: none; 
+    -moz-appearance: none; 
+} 
+
+body select option { 
+    padding: 0 4px; 
+} 
+select::-ms-expand { 
+    display: none; 
+} 
+select:disabled::-ms-expand { 
+    background: #f60; 
+}
+
+.btn {
+    background-color: #FF4500; 
+    border: none; 
+    color: wheat;
+    padding: 12px 16px; 
+    font-size: 16px;
+    cursor: pointer; 
+    margin-left: 20%;
+    width: 30%;
+  }
+  input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: black;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid black;
+    border-radius: 3px;
+    background:#DADADA;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="date"], focus {
+    color: black;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+  .btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  #upcoming-task:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border: 1px solid gray;
+  }
+  
+  .red{
+      color:red;
+  }
+  .green{
+      color: rgb(9, 175, 139);
+  }
+
+ 

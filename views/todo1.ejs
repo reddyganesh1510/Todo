@@ -1,0 +1,266 @@
+<html>
+    <head>
+        <link href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style1.css">
+       
+        <title><%= title%></title>
+        
+    </head>
+    <body >
+        <div id="main">
+            <div id="heading-todo" class="heading-todo"><i class="fad fa-list-ul"></i></i><p>todo</p></div>
+            <div id="part-1" class="inline-block">
+                <div id="part-1-container">
+                    <!-- makes the form for new task -->
+                    <form action="/new-task" method="POST" id="add-task">
+                        <div id="task-input"><i class="fas fa-plus"></i>
+                            <input type="text" name="task" size="15">
+                        </div>
+                    <div id="date-input"><i class="fas fa-calendar-week"></i>
+                        <input type="date" name="date" >
+                    </div>
+                    <div id="Type-input"><i class="fas fa-question"></i>
+                        <select name="type" id="" class="select_box">
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="Others" >Others</option>
+                        </select>
+                    </div>
+                    <div id="urgency-input"><i class="fas fa-tachometer-alt" style="font-size: 0.8vw;"></i>
+                        <select name="urgency" id="">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                            
+                        </select></div>
+                    <div id="button">
+                        <button id="add-button" class="btn" >ADD&nbsp&nbsp<i class="fas fa-arrow-right" style="font-size: 0.8vw; margin-left: 0;" ></i></button>
+                    </div>
+                    </form>
+                    <button type="submit" form="delete-multiple" class="btn">Delete</button>
+                   
+                   
+                       
+
+                </div>
+            </div>
+            <div id="part-2" class="inline-block">
+                <div id="upcoming-tasks">
+                    <div id="heading-upcoming" class="heading-tasks"><p>Upcoming Tasks</p></div>
+                    <div id="upcoming-container">
+                        <!-- display the divs according to number of tasks in database, sets border as per urgency and sets background color
+                        as per type -->
+                        <form action="delete-multiple" method="POST" id="delete-multiple">
+                        <% for( i of TasksList) {%>
+                            <% if (i.urgency=="High") { %>
+                                <% if (i.status == "upcoming") { %>
+                                    <div id="upcoming-task" style="border-left: 5px solid red">
+                                        <div id="name-date">
+                                            <input type="checkbox" name="check" value="<%= i._id %>">
+                                            <p><%=i.task%></p>
+                                            <p ><%=i.date%></p>
+                                        </div>
+                                        <% if (i.type=="Personal") { %>
+                                        <div id="type-info" style="background-color:red;">
+                                            <p><%=i.type%></p>
+                                        </div>
+                                        <%}%> <% if (i.type=="Work") { %>
+                                            <div id="type-info" style="background-color: blue;">
+                                                <p><%=i.type%></p>
+                                            </div>
+                                            <%}%> <% if (i.type=="Others") { %>
+                                                <div id="type-info" style="background-color: green;">
+                                                    <p><%=i.type%></p>
+                                                </div>
+                                                <%}%>
+                                        <div id="options">
+                                            <a href="/delete-task/?id=<%= i._id %>" class="red"><i class="far fa-times-circle" ></i></a>
+                                            
+                                            <a href="/completed-task/?id=<%= i._id %>" class="green"><i class="fas fa-check"></i></a>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <% } %> 
+                                
+                                <%} %>
+                                <% if (i.urgency=="Medium") { %>
+                                    <% if (i.status == "upcoming") { %>
+                                        <div id="upcoming-task" style="border-left: 5px solid orange ">
+                                            <div id="name-date">
+                                                <input type="checkbox" name="check" value="<%= i._id %>">
+
+                                                <p><%=i.task%></p>
+                                                <p ><%=i.date%></p>
+                                            </div>
+                                            <% if (i.type=="Personal") { %>
+                                            <div id="type-info" style="background-color:red;">
+                                                <p><%=i.type%></p>
+                                            </div>
+                                            <%}%> <% if (i.type=="Work") { %>
+                                                <div id="type-info" style="background-color: blue;">
+                                                    <p><%=i.type%></p>
+                                                </div>
+                                                <%}%> <% if (i.type=="Others") { %>
+                                                    <div id="type-info" style="background-color: green;">
+                                                        <p><%=i.type%></p>
+                                                    </div>
+                                                    <%}%>
+                                            <div id="options">
+                                                <a href="/delete-task/?id=<%= i._id %>" class="red"><i class="far fa-times-circle" ></i></a>
+                                                <a href="/completed-task/?id=<%= i._id %>" class="green"><i class="fas fa-check"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <% } %> 
+                                    
+                                    <%} %>
+
+                                    <% if (i.urgency=="Low") { %>
+                                        <% if (i.status == "upcoming") { %>
+                                            <div id="upcoming-task" style="border-left: 4px solid green">
+                                                <div id="name-date">
+                                                    <input type="checkbox" name="check" value="<%= i._id %>">
+
+                                                    <p><%=i.task%></p>
+                                                    <p ><%=i.date%></p>
+                                                </div>
+                                                <% if (i.type=="Personal") { %>
+                                                <div id="type-info" style="background-color:red;">
+                                                    <p><%=i.type%></p>
+                                                </div>
+                                                <%}%> <% if (i.type=="Work") { %>
+                                                    <div id="type-info" style="background-color: blue;">
+                                                        <p><%=i.type%></p>
+                                                    </div>
+                                                    <%}%> <% if (i.type=="Others") { %>
+                                                        <div id="type-info" style="background-color: green;">
+                                                            <p><%=i.type%></p>
+                                                        </div>
+                                                        <%}%>
+                                                <div id="options">
+                                                    <a href="/delete-task/?id=<%= i._id %>" class="red"><i class="far fa-times-circle" ></i></a>
+                                                    <a href="/completed-task/?id=<%= i._id %>" class="green"><i class="fas fa-check"></i></a>
+                                                </div>
+                                            </div>
+                                            
+                                            <% } %> 
+                                        
+                                        <%} %>
+                                    
+                            
+                            <%}%>
+                            
+                        </form>
+
+                    </div>
+                </div>
+                <div id="completed-tasks">
+                    <div id="heading-completed" class="heading-tasks"><p>Completed Tasks</p></div>
+                   
+
+                    <div id="completed-container">
+                        <% for( i of TasksList) {%>
+                            <% if (i.urgency=="High") { %>
+                                <% if (i.status == "completed") { %>
+                                    <div id="upcoming-task" style="border-left: 4px solid red">
+                                        <div id="name-date">
+                                            
+                                            <p><%=i.task%></p>
+                                            <p ><%=i.date%></p>
+                                        </div>
+                                        <% if (i.type=="Personal") { %>
+                                        <div id="type-info" style="background-color:red;">
+                                            <p><%=i.type%></p>
+                                        </div>
+                                        <%}%> <% if (i.type=="Work") { %>
+                                            <div id="type-info" style="background-color: blue;">
+                                                <p><%=i.type%></p>
+                                            </div>
+                                            <%}%> <% if (i.type=="Others") { %>
+                                                <div id="type-info" style="background-color: green;">
+                                                    <p><%=i.type%></p>
+                                                </div>
+                                                <%}%>
+                                        <div id="options">
+                                            <a href="/delete-task/?id=<%= i._id %>" class="red"><i class="far fa-times-circle"></i></a>
+                                            <a href="/upcoming-task/?id=<%= i._id %>" class="red"><i class="fas fa-arrow-left" style="color: blue;"></i></a>
+                                        </div>
+                                    </div>
+                                    
+                                    <% } %> 
+                                
+                                <%} %>
+                                <% if (i.urgency=="Medium") { %>
+                                    <% if (i.status == "completed") { %>
+                                        <div id="upcoming-task" style="border-left: 4px solid orange">
+                                            <div id="name-date">
+                                                
+                                                <p><%=i.task%></p>
+                                                <p ><%=i.date%></p>
+                                            </div>
+                                            <% if (i.type=="Personal") { %>
+                                            <div id="type-info" style="background-color:red;">
+                                                <p><%=i.type%></p>
+                                            </div>
+                                            <%}%> <% if (i.type=="Work") { %>
+                                                <div id="type-info" style="background-color: blue;">
+                                                    <p><%=i.type%></p>
+                                                </div>
+                                                <%}%> <% if (i.type=="Others") { %>
+                                                    <div id="type-info" style="background-color: green;">
+                                                        <p><%=i.type%></p>
+                                                    </div>
+                                                    <%}%>
+                                            <div id="options">
+                                                <a href="/delete-task/?id=<%= i._id %>" class="red"><i class="far fa-times-circle"></i></a>
+                                                <a href="/upcoming-task/?id=<%= i._id %>" class="red"><i class="fas fa-arrow-left" style="color: blue;"></i></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <% } %> 
+                                    
+                                    <%} %>
+
+                                    <% if (i.urgency=="Low") { %>
+                                        <% if (i.status == "completed") { %>
+                                            <div id="upcoming-task" style="border-left: 4px solid green">
+                                                <div id="name-date">
+                                                    
+                                                    <p><%=i.task%></p>
+                                                    <p ><%=i.date%></p>
+                                                </div>
+                                                <% if (i.type=="Personal") { %>
+                                                <div id="type-info" style="background-color:red;">
+                                                    <p><%=i.type%></p>
+                                                </div>
+                                                <%}%> <% if (i.type=="Work") { %>
+                                                    <div id="type-info" style="background-color: blue;">
+                                                        <p><%=i.type%></p>
+                                                    </div>
+                                                    <%}%> <% if (i.type=="Others") { %>
+                                                        <div id="type-info" style="background-color: green;">
+                                                            <p><%=i.type%></p>
+                                                        </div>
+                                                        <%}%>
+                                                <div id="options">
+                                                    <a href="/delete-task/?id=<%= i._id %>" class="red"><i class="far fa-times-circle"></i></a>
+                                                    <a href="/upcoming-task/?id=<%= i._id %>" class="red"><i class="fas fa-arrow-left" style="color: blue;"></i></a>
+                                                </div>
+                                            </div>
+                                            
+                                            <% } %> 
+                                        
+                                        <%} %>
+                                    
+                            
+                            <%}%>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>
+
